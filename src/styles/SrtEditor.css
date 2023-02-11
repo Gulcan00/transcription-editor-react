@@ -1,0 +1,50 @@
+.srt-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.file-input-container, .file-save {
+    font-size: 18px;
+    padding: 8px 16px;
+    background-color: rgb(18, 83, 105);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+.file-input {
+    display: none;
+  }
+  
+.file-input-label {
+    background-color: #3882f6;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+  }
+
+.textarea {
+    display: flex;
+    flex: 1;
+    padding: 16px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+.btn {
+    background-color: #3882f6;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+  
+
