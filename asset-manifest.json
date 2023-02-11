@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/transcription-editor-react/static/css/main.db2e0526.css",
+    "main.js": "/transcription-editor-react/static/js/main.0152c613.js",
+    "static/js/787.10eb9c4c.chunk.js": "/transcription-editor-react/static/js/787.10eb9c4c.chunk.js",
+    "index.html": "/transcription-editor-react/index.html",
+    "main.db2e0526.css.map": "/transcription-editor-react/static/css/main.db2e0526.css.map",
+    "main.0152c613.js.map": "/transcription-editor-react/static/js/main.0152c613.js.map",
+    "787.10eb9c4c.chunk.js.map": "/transcription-editor-react/static/js/787.10eb9c4c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db2e0526.css",
+    "static/js/main.0152c613.js"
+  ]
+}
