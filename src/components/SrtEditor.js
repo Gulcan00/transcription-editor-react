@@ -4,7 +4,6 @@ import "../styles/SrtEditor.css"
 
 const SrtEditor = () => {
   const [srtContent, setSrtContent] = useState("");
-  const [fileName, setFileName] = useState("subtitles");
 
   const handleOpen = (event) => {
     const file = event.target.files[0];
