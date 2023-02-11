@@ -4,6 +4,7 @@ import "../styles/SrtEditor.css"
 
 const SrtEditor = () => {
   const [srtContent, setSrtContent] = useState("");
+  const [fileName, setFileName] = useState("subtitles");
 
   const handleOpen = (event) => {
     const file = event.target.files[0];
@@ -37,31 +38,26 @@ const SrtEditor = () => {
 
   const handleSaveVtt = () => {
     let vttContent = "WEBVTT\n\n";
-    const lines = srtContent.split("\n");
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      if (line.match(/^\d+$/)) {
-        vttContent += "\n";
-      } else {
-        vttContent += `${line}\n`;
-      }
-    }
+    const regex = /(\d*\n)(\d\d):(\d\d:\d\d),(\d{3}) --> (\d\d):(\d\d:\d\d),(\d{3})/gm;
+    const subst = `$3.$4 --> $6.$7`;
+    vttContent += srtContent.replace(regex, subst);
+
     const file = new Blob([vttContent], { type: "text/plain" });
     saveAs(file, `${fileName}.vtt`);
   };
 
   const handleSaveTxt = () => {
-    const text = srtContent;
-    const lines = text.split("\n");
-    let newText = "";
-    for (let i = 0; i < lines.length; i++) {
-      if (isNaN(lines[i].substring(0, 2))) {
-        newText += lines[i];
-    }
-    }
+    let regex = /\n\n/gm;
+    let subst = ``;
+    let text = srtContent.replace(regex, subst);
 
+    regex = /(\d*\n)(\d\d):(\d\d:\d\d),(\d{3}) --> (\d\d):(\d\d:\d\d),(\d{3})/gm;
+    text = text.replace(regex, subst);
+    subst = ` `;
+    text = text.replace(/\n/gm, subst);
+    
     if (fileName) {
-      const file = new Blob([newText], { type: "text/plain" });
+      const file = new Blob([text], { type: "text/plain" });
       saveAs(file, `${fileName}.txt`);
       handleSaveSrt();
       handleSaveVtt();
