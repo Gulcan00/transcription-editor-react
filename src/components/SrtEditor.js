@@ -61,6 +61,8 @@ const SrtEditor = () => {
     }
     }
     const file = new Blob([newText], { type: "text/plain" });
+    if(fileName.length == 0)
+      fileName = "subtitles";
     saveAs(file, `${fileName}.txt`);
     handleSaveSrt();
     handleSaveVtt();
