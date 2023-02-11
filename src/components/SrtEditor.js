@@ -60,12 +60,15 @@ const SrtEditor = () => {
         newText += lines[i];
     }
     }
-    const file = new Blob([newText], { type: "text/plain" });
-    if(fileName.length == 0)
-      fileName = "subtitles";
-    saveAs(file, `${fileName}.txt`);
-    handleSaveSrt();
-    handleSaveVtt();
+
+    if (fileName) {
+      const file = new Blob([newText], { type: "text/plain" });
+      saveAs(file, `${fileName}.txt`);
+      handleSaveSrt();
+      handleSaveVtt();
+    } else {
+      alert("No file name entered. File not saved.");
+    }
   };
 
   return (
